@@ -36,7 +36,7 @@ const Menu = () => {
 			tl.current = gsap.timeline({ paused: true });
 
 			tl.current.to(".overlay", {
-				duration: 0.75,
+				duration: 1,
 				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
 				ease: "power4.inOut",
 			});
@@ -49,10 +49,10 @@ const Menu = () => {
 			});
 			tl.current.to(".connect-link", {
 				opacity: 1,
-				duration: 0.5,
+				duration: 0.75,
 				stagger: 0.1,
 				ease: "power4.out",
-				delay: -0.59,
+				delay: -0.79,
 			});
 		},
 		{ scope: containerRef }

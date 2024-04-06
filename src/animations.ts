@@ -17,7 +17,7 @@ export const animatePageIn = () => {
 			.to(
 				transitionElement,
 				{
-					duration: 0.3,
+					duration: 0.4,
 				},
 				"<"
 			);
@@ -43,7 +43,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance) => {
 			.to(
 				animationWrapper,
 				{
-					duration: 0.3,
+					duration: 0.4,
 				},
 				"<"
 			);
