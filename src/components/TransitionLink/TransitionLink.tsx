@@ -11,7 +11,7 @@ export default function TransitionLink({
 	label,
 	style,
 }: {
-	className: string;
+	className?: string;
 	href: string;
 	label: string;
 	style?: string;
