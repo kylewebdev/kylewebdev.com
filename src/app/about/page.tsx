@@ -1,3 +1,4 @@
+import TransitionLink from "@/components/TransitionLink/TransitionLink";
 import React from "react";
 
 const AboutPage = () => {
@@ -14,9 +15,14 @@ const AboutPage = () => {
 				</p>
 
 				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
-					I&apos;ve always had a knack for figuring out how things
-					work on the web, and it turns out, I love turning that
+					Since I was a kid, I&apos;ve always had a knack for figuring
+					out how things work, and it turns out, I love turning that
 					passion into helping businesses build their dream websites.
+				</p>
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+					Feel free to{" "}
+					<TransitionLink href="/contact" label="contact me" /> if you
+					have any questions.
 				</p>
 			</div>
 		</div>

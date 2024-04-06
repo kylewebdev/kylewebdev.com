@@ -125,6 +125,9 @@ h6,
 	.text-pretty {
 		text-wrap: pretty;
 	}
+	.gradient-text {
+		@apply bg-gradient-to-r from-green-400 via-blue-400 to-purple-600 bg-clip-text text-transparent;
+	}
 }
 
 .overlay {

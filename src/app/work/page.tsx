@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/TransitionLink/TransitionLink";
 import React from "react";
 
 const WorkPage = () => {
@@ -12,10 +12,7 @@ const WorkPage = () => {
 					Unfortunately, I can&apos;t share any of my work at the
 					moment. But I&apos;m always open to new opportunities. If
 					you have any questions or would like to see my work, feel
-					free to{" "}
-					<Link className="underline" href="/contact">
-						reach out
-					</Link>
+					free to <TransitionLink href="/contact" label="reach out" />
 					.
 				</p>
 			</div>
