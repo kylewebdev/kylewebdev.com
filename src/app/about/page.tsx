@@ -13,7 +13,7 @@ const AboutPage = () => {
 					<span className="font-mono uppercase">KyleWebDev</span>.
 				</p>
 
-				<p className="max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
 					I&apos;ve always had a knack for figuring out how things
 					work on the web, and it turns out, I love turning that
 					passion into helping businesses build their dream websites.

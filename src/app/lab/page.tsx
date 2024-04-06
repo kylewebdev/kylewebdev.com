@@ -7,7 +7,7 @@ const LabPage = () => {
 				<h1 className="font-normal tracking-tighter text-6xl lg:text-8xl text-balance">
 					Lab
 				</h1>
-				<p className="max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
 					Welcome to the lab! This is where I&apos;ll be experimenting
 					with new ideas and concepts. Stay tuned for more updates!
 				</p>

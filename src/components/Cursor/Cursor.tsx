@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { cn } from "@/lib/utils";
 
 const useIsomorphicLayoutEffect =
 	typeof window !== "undefined" ? useLayoutEffect : useEffect;
@@ -10,6 +11,12 @@ const Cursor = () => {
 	const yTo = useRef<gsap.QuickToFunc>();
 	const container = useRef<HTMLDivElement>(null);
 	const cursor = useRef<HTMLDivElement>(null);
+	const [isTouch, setIsTouch] = useState(false);
+
+	const isTouchDevice = () => {
+		if (typeof window === "undefined") return false;
+		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
+	};
 
 	useIsomorphicLayoutEffect(() => {
 		let ctx = gsap.context(() => {
@@ -31,6 +38,9 @@ const Cursor = () => {
 
 		window.addEventListener("mousemove", moveShape);
 
+		if (typeof window === "undefined") return false;
+		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
 		return () => {
 			ctx.revert();
 			window.removeEventListener("mousemove", moveShape);
@@ -43,7 +53,10 @@ const Cursor = () => {
 			ref={container}
 		>
 			<div
-				className="cursor fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full w-5 h-5 border border-slate-400"
+				className={cn(
+					"cursor fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full w-5 h-5 border border-slate-400",
+					{ hidden: isTouch }
+				)}
 				ref={cursor}
 			/>
 		</div>

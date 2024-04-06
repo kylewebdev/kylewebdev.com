@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Space_Mono } from "next/font/google";
+import { Inter as FontSans, Space_Mono as FontMono } from "next/font/google";
 import "./globals.css";
 
 import Menu from "@/components/Menu/Menu";
 import Cursor from "@/components/Cursor/Cursor";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
-const spaceMono = Space_Mono({
+const fontSans = FontSans({
+	subsets: ["latin"],
+	variable: "--font-sans",
+});
+
+const fontMono = FontMono({
 	subsets: ["latin"],
 	weight: ["400", "700"],
 	variable: "--font-mono",
@@ -25,7 +30,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`antialiased ${inter.className} ${spaceMono.variable}`}
+				className={cn(
+					"antialiased",
+					fontSans.variable,
+					fontMono.variable
+				)}
 			>
 				<Cursor />
 				<Menu />
