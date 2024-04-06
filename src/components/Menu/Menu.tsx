@@ -7,8 +7,6 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP);
 
-import styles from "./Menu.module.css";
-
 const menuItems = [
 	{ path: "/", label: "Index" },
 	{ path: "/work", label: "Work" },
@@ -20,7 +18,7 @@ const menuItems = [
 const Menu = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false);
-	const timeline = useRef<gsap.core.Timeline>();
+	const tl = useRef<gsap.core.Timeline>();
 
 	const toggleMenu = () => {
 		setIsMenuOpen(!isMenuOpen);
@@ -33,32 +31,40 @@ const Menu = () => {
 	useGSAP(
 		() => {
 			gsap.set(".menu-item--holder", { y: "100%" });
+			gsap.set(".connect-link", { opacity: 0 });
 
-			timeline.current = gsap
-				.timeline({ paused: true })
-				.to(".overlay", {
-					duration: 1,
-					clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
-					ease: "power4.inOut",
-				})
-				.to(".menu-item--holder", {
-					y: 0,
-					duration: 0.75,
-					stagger: 0.1,
-					ease: "power4.out",
-					delay: -0.75,
-				});
+			tl.current = gsap.timeline({ paused: true });
+
+			tl.current.to(".overlay", {
+				duration: 0.75,
+				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
+				ease: "power4.inOut",
+			});
+			tl.current.to(".menu-item--holder", {
+				y: 0,
+				duration: 0.75,
+				stagger: 0.1,
+				ease: "power4.out",
+				delay: -0.79,
+			});
+			tl.current.to(".connect-link", {
+				opacity: 1,
+				duration: 0.5,
+				stagger: 0.1,
+				ease: "power4.out",
+				delay: -0.59,
+			});
 		},
 		{ scope: containerRef }
 	);
 
 	useEffect(() => {
-		if (!timeline.current) return;
+		if (!tl.current) return;
 
 		if (isMenuOpen) {
-			timeline.current.play();
+			tl.current.play();
 		} else {
-			timeline.current.reverse();
+			tl.current.reverse();
 		}
 	}, [isMenuOpen]);
 
@@ -78,7 +84,7 @@ const Menu = () => {
 
 			{/* Overlay */}
 			<div className="overlay overflow-y-auto fixed top-0 left-0 w-screen h-dvh p-8 bg-slate-200 text-black z-10">
-				<div className="grid grid-cols-[1fr_4fr_1fr] grid-rows-[88px_2fr_1fr] gap-4 sm:h-full">
+				<div className="grid grid-cols-[1fr_4fr_1fr] grid-rows-[88px_2fr_1fr] gap-4 h-full">
 					<div className="flex flex-col justify-between h-full row-start-1 row-end-5 col-start-1 col-end-1">
 						<div className="uppercase font-mono">
 							<Link href="/" onClick={closeMenu}>
@@ -86,39 +92,50 @@ const Menu = () => {
 							</Link>
 						</div>
 						<div>
-							<a
-								className="block"
-								href="https://twitter.com/kylewebdev_"
-								target="_blank"
-							>
-								X &#8599;
-							</a>
-							<a
-								className="block"
-								href="https://github.com/kylewebdev"
-								target="_blank"
-							>
-								GitHub &#8599;
-							</a>
-							<a
-								className="block"
-								href="https://www.linkedin.com/in/kylewebdev"
-								target="_blank"
-							>
-								LinkedIn &#8599;
-							</a>
-							<a
-								className="block"
-								href="mailto:kylewebdev@gmail.com"
-								target="_blank"
-							>
-								Email &#8599;
-							</a>
+							<div className="overflow-hidden">
+								<a
+									className="connect-link block"
+									href="https://twitter.com/kylewebdev_"
+									target="_blank"
+								>
+									X &#8599;
+								</a>
+							</div>
+
+							<div className="overflow-hidden">
+								<a
+									className="connect-link block"
+									href="https://github.com/kylewebdev"
+									target="_blank"
+								>
+									GitHub &#8599;
+								</a>
+							</div>
+
+							<div className="overflow-hidden">
+								<a
+									className="connect-link block"
+									href="https://www.linkedin.com/in/kylewebdev"
+									target="_blank"
+								>
+									LinkedIn &#8599;
+								</a>
+							</div>
+
+							<div className="overflow-hidden">
+								<a
+									className="connect-link block"
+									href="mailto:kylewebdev@gmail.com"
+									target="_blank"
+								>
+									Email &#8599;
+								</a>
+							</div>
 						</div>
 					</div>
 
-					<div className="flex flex-col justify-between h-full col-start-1 row-start-2 lg:col-start-2">
-						<div className="flex flex-col gap-1">
+					<div className="flex flex-col justify-between h-full col-start-3 row-start-2 lg:col-start-2">
+						<div className="flex flex-col gap-1 text-right">
 							{menuItems.map((item, index) => (
 								<div key={index} className="overflow-hidden">
 									<div className="menu-item--holder">

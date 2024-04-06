@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-import Menu from "@/components/menu/Menu";
+import Menu from "@/components/Menu/Menu";
+import Cursor from "@/components/Cursor/Cursor";
 
 const inter = Inter({ subsets: ["latin"] });
 const spaceMono = Space_Mono({
@@ -26,6 +27,7 @@ export default function RootLayout({
 			<body
 				className={`antialiased ${inter.className} ${spaceMono.variable}`}
 			>
+				<Cursor />
 				<Menu />
 				{children}
 			</body>
