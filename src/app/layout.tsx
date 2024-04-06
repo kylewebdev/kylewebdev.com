@@ -12,8 +12,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "NextJS x GSAP Nav",
-	description: "Cool Example of NextJS x GSAP Nav",
+	title: "Kyle Garcia | Frontend Specialist",
+	description: "Crafting Modern, User-Focused Web Experiences",
 };
 
 export default function RootLayout({
