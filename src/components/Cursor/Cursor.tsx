@@ -38,7 +38,7 @@ const Cursor = () => {
 
 		window.addEventListener("mousemove", moveShape);
 
-		if (typeof window === "undefined") return false;
+		if (typeof window === "undefined") return;
 		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
 		return () => {
