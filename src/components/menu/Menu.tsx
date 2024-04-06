@@ -77,7 +77,7 @@ const Menu = () => {
 			</div>
 
 			{/* Overlay */}
-			<div className="overlay fixed top-0 left-0 w-screen h-screen p-8 bg-slate-200 text-black grid grid-cols-[1fr_4fr_1fr] grid-rows-[88px_1fr_1fr] gap-4 z-10">
+			<div className="overlay fixed top-0 left-0 w-screen h-screen p-8 bg-slate-200 text-black grid grid-cols-[1fr_1fr] lg:grid-cols-[1fr_4fr_1fr] grid-rows-[88px_1fr_1fr] gap-4 z-10">
 				<div className="flex flex-col justify-between h-full row-start-1 row-end-4 col-start-1 col-end-1">
 					<div className="uppercase font-mono">
 						<Link href="/" onClick={closeMenu}>
@@ -122,7 +122,7 @@ const Menu = () => {
 							<div key={index} className="overflow-hidden">
 								<div className="menu-item--holder">
 									<Link
-										className="text-6xl lg:text-9xl font-extralight uppercase -tracking-wider"
+										className="text-5xl sm:text-6xl lg:text-9xl font-extralight uppercase -tracking-wider"
 										href={item.path}
 										onClick={toggleMenu}
 									>
@@ -134,7 +134,7 @@ const Menu = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-4 col-start-4 col-end-4">
+				<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-4 col-start-2 col-end-2 lg:col-start-3 lg:col-end-3">
 					<div
 						className="cursor-pointer uppercase font-mono"
 						onClick={toggleMenu}

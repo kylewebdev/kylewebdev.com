@@ -4,7 +4,7 @@ const ContactPage = () => {
 	return (
 		<div className="w-full h-full min-h-screen py-24 px-8 flex items-center justify-center">
 			<div className="flex flex-col gap-6">
-				<h1 className="text-6xl font-normal tracking-tighter lg:text-8xl">
+				<h1 className="font-normal tracking-tighter text-6xl lg:text-8xl text-balance">
 					<a
 						className="block break-all"
 						href="mailto:kylewebdev@gmail.com"
