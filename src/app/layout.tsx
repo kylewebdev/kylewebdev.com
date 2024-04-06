@@ -12,7 +12,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-	title: "Kyle Garcia | Frontend Specialist",
+	title: "Kyle Garcia | Fullstack Developer",
 	description: "Crafting Modern, User-Focused Web Experiences",
 };
 
