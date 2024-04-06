@@ -135,7 +135,10 @@ const Menu = () => {
 				</div>
 
 				<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-4 col-start-4 col-end-4">
-					<div className="uppercase font-mono" onClick={toggleMenu}>
+					<div
+						className="cursor-pointer uppercase font-mono"
+						onClick={toggleMenu}
+					>
 						<p>Close</p>
 					</div>
 				</div>
