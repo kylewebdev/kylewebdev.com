@@ -1,5 +1,4 @@
 import TransitionLink from "@/components/TransitionLink/TransitionLink";
-import { Button } from "@/components/ui/button";
 
 export default function Home() {
 	return (
@@ -14,15 +13,15 @@ export default function Home() {
 				</h1>
 				<p className="font-mono max-w-[54ch] leading-7 text-pretty text-slate-400">
 					I believe in the power of the web to connect, inform, and
-					inspire.
-				</p>
-				{/* <div>
+					inspire. I build websites that are fast, accessible, and
+					beautiful.{" "}
 					<TransitionLink
-						href="/work"
-						label="See My Work"
-						style="button"
+						className="link"
+						href="/projects"
+						label="Check out my work"
 					/>
-				</div> */}
+					.
+				</p>
 			</div>
 		</div>
 	);

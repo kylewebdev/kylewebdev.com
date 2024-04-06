@@ -3,12 +3,15 @@
 import { useRouter } from "next/navigation";
 import { animatePageOut } from "@/animations";
 import { Button } from "../ui/button";
+import { cn } from "@/lib/utils";
 
 export default function TransitionLink({
+	className,
 	href,
 	label,
 	style,
 }: {
+	className: string;
 	href: string;
 	label: string;
 	style?: string;
@@ -27,14 +30,21 @@ export default function TransitionLink({
 		if (style === "link") {
 			return (
 				<button
-					className="inline underline font-mono max-w-[54ch] leading-7 text-pretty text-slate-400"
+					className={cn(
+						"inline underline font-mono max-w-[54ch] leading-7 text-pretty text-slate-400",
+						className
+					)}
 					onClick={handleClick}
 				>
 					{label}
 				</button>
 			);
 		} else {
-			return <Button onClick={handleClick}>{label}</Button>;
+			return (
+				<Button className={className} onClick={handleClick}>
+					{label}
+				</Button>
+			);
 		}
 	};
 

@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { cn } from "@/lib/utils";
 
@@ -12,10 +13,18 @@ const Cursor = () => {
 	const container = useRef<HTMLDivElement>(null);
 	const cursor = useRef<HTMLDivElement>(null);
 	const [isTouch, setIsTouch] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+	const [hoverElement, setHoverElement] = useState<HTMLElement>();
+	const [isHovering, setIsHovering] = useState(false);
 
-	const isTouchDevice = () => {
-		if (typeof window === "undefined") return false;
-		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
+	const mouseEnter = (e: any) => {
+		setHoverElement(e.target);
+		setIsHovering(true);
+	};
+
+	const mouseLeave = (e: any) => {
+		setHoverElement(undefined);
+		setIsHovering(false);
 	};
 
 	useIsomorphicLayoutEffect(() => {
@@ -38,27 +47,74 @@ const Cursor = () => {
 
 		window.addEventListener("mousemove", moveShape);
 
-		if (typeof window === "undefined") return;
-		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
-
 		return () => {
 			ctx.revert();
 			window.removeEventListener("mousemove", moveShape);
 		};
 	}, []);
 
+	useEffect(() => {
+		const hoverElements = [".project", "a"];
+
+		for (let el of hoverElements) {
+			const elements = document.querySelectorAll(el);
+			elements.forEach((element) => {
+				element.addEventListener("mouseenter", mouseEnter);
+				element.addEventListener("mouseleave", mouseLeave);
+			});
+		}
+
+		if (typeof window === "undefined") return;
+		setIsTouch("ontouchstart" in window || navigator.maxTouchPoints > 0);
+		setIsMobile(window.innerWidth <= 768);
+
+		return () => {
+			for (let el of hoverElements) {
+				const elements = document.querySelectorAll(el);
+				elements.forEach((element) => {
+					element.removeEventListener("mouseenter", mouseEnter);
+					element.removeEventListener("mouseleave", mouseLeave);
+				});
+			}
+		};
+	}, []);
+
 	return (
 		<div
-			className="h-dvh w-dvw absolute top-0 left-0 z-20 pointer-events-none"
+			className="h-vh w-vw absolute top-0 left-0 z-20 pointer-events-none"
 			ref={container}
 		>
 			<div
 				className={cn(
-					"cursor fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full w-5 h-5 border border-slate-400",
-					{ hidden: isTouch }
+					"cursor fixed top-0 left-0 -translate-x-1/2 -translate-y-1/2 rounded-full w-5 h-5",
+					{
+						hidden: isTouch || isMobile,
+						"border border-slate-400 opacity-50":
+							isHovering &&
+							hoverElement &&
+							hoverElement.classList.contains("link"),
+						"border border-slate-400": !isHovering && !hoverElement,
+						"top-8":
+							isHovering &&
+							hoverElement &&
+							hoverElement.classList.contains("project"),
+					}
 				)}
 				ref={cursor}
-			/>
+			>
+				{isHovering && hoverElement?.dataset.image && (
+					<div className="w-96 h-96 mt-4">
+						<Image
+							src={hoverElement?.dataset.image}
+							alt="Joint Medias"
+							width={800}
+							height={800}
+							priority
+							className="rounded-lg"
+						/>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 };

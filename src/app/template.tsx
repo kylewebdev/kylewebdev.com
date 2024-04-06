@@ -9,7 +9,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
 	}, []);
 
 	return (
-		<div>
+		<div className="overflow-hidden">
 			<div
 				id="transition-element"
 				className="w-screen h-screen bg-black z-100 fixed top-0 left-0"
