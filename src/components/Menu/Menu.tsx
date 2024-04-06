@@ -84,7 +84,7 @@ const Menu = () => {
 
 			{/* Overlay */}
 			<div className="overlay overflow-y-auto fixed top-0 left-0 w-full h-dvh p-8 bg-slate-200 text-black z-10">
-				<div className="grid grid-cols-[1fr_4fr_1fr] grid-rows-[88px_2fr_1fr] gap-4 h-full">
+				<div className="grid grid-cols-[1fr_1fr]md:grid-cols-[1fr_4fr_1fr] grid-rows-[88px_2fr_1fr] gap-4 h-full">
 					<div className="flex flex-col justify-between h-full row-start-1 row-end-5 col-start-1 col-end-1">
 						<div className="uppercase font-mono">
 							<Link href="/" onClick={closeMenu}>
@@ -94,7 +94,7 @@ const Menu = () => {
 						<div>
 							<div className="overflow-hidden">
 								<a
-									className="connect-link inline-block"
+									className="connect-link block"
 									href="https://twitter.com/kylewebdev_"
 									target="_blank"
 								>
@@ -104,7 +104,7 @@ const Menu = () => {
 
 							<div className="overflow-hidden">
 								<a
-									className="connect-link inline-block"
+									className="connect-link block"
 									href="https://github.com/kylewebdev"
 									target="_blank"
 								>
@@ -114,7 +114,7 @@ const Menu = () => {
 
 							<div className="overflow-hidden">
 								<a
-									className="connect-link inline-block"
+									className="connect-link block"
 									href="https://www.linkedin.com/in/kylewebdev"
 									target="_blank"
 								>
@@ -124,7 +124,7 @@ const Menu = () => {
 
 							<div className="overflow-hidden">
 								<a
-									className="connect-link inline-block"
+									className="connect-link block"
 									href="mailto:kylewebdev@gmail.com"
 									target="_blank"
 								>
@@ -134,13 +134,13 @@ const Menu = () => {
 						</div>
 					</div>
 
-					<div className="flex flex-col justify-between h-full col-start-3 row-start-2 lg:col-start-2">
+					<div className="flex flex-col justify-between h-full col-start-2 col-end-3 row-start-2 lg:col-start-2">
 						<div className="flex flex-col gap-1 text-right">
 							{menuItems.map((item, index) => (
 								<div key={index} className="overflow-hidden">
 									<div className="menu-item--holder">
 										<Link
-											className="text-5xl sm:text-6xl lg:text-9xl font-extralight uppercase -tracking-wider"
+											className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-extralight uppercase -tracking-wider"
 											href={item.path}
 											onClick={toggleMenu}
 										>
@@ -152,7 +152,7 @@ const Menu = () => {
 						</div>
 					</div>
 
-					<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-5 col-start-3 col-end-3">
+					<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-5 col-start-2 col-end-3">
 						<div
 							className="cursor-pointer uppercase font-mono"
 							onClick={toggleMenu}

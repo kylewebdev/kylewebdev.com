@@ -54,8 +54,8 @@ const WorkPage = () => {
 								Headless WordPress,{" "}
 								<span className="line-through">Gatsby</span>,{" "}
 								<span className="line-through">SCSS</span>,
-								Next.js, Tailwind CSS/CSS Modules, GSAP,
-								Three.js
+								Next.js, TypeScript, Tailwind CSS/CSS Modules,
+								GSAP, Three.js
 							</p>
 						</a>
 					</>
