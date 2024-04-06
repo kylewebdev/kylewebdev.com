@@ -1,11 +1,8 @@
 export default function Home() {
 	return (
-		<div className="w-full h-full min-h-screen py-24 px-8">
-			<h1 className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-7xl font-normal tracking-tighter lg:text-9xl">
-				Index
-				<sup className="relative -top-8 left-2 text-base tracking-normal lg:-top-16 lg:left-3 lg:text-2xl">
-					[0]
-				</sup>
+		<div className="w-full h-full min-h-screen py-24 px-8 flex items-center justify-center">
+			<h1 className="max-w-[14ch] font-normal tracking-tighter text-7xl lg:text-9xl text-balance">
+				I Craft Modern, User-Focused Web Experiences
 			</h1>
 		</div>
 	);

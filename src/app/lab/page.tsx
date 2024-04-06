@@ -2,13 +2,16 @@ import React from "react";
 
 const LabPage = () => {
 	return (
-		<div className="w-full h-full min-h-screen py-24 px-8">
-			<h1 className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 text-7xl font-normal tracking-tighter lg:text-9xl">
-				Lab
-				<sup className="relative -top-8 left-2 text-base tracking-normal lg:-top-16 lg:left-3 lg:text-2xl">
-					[4]
-				</sup>
-			</h1>
+		<div className="w-full h-full min-h-screen py-24 px-8 flex items-center justify-center">
+			<div className="flex flex-col gap-6">
+				<h1 className="text-6xl font-normal tracking-tighter lg:text-8xl">
+					Lab
+				</h1>
+				<p className="max-w-[66ch] leading-7 text-pretty text-slate-400">
+					Welcome to the lab! This is where I&apos;ll be experimenting
+					with new ideas and concepts. Stay tuned for more updates!
+				</p>
+			</div>
 		</div>
 	);
 };

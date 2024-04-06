@@ -14,6 +14,7 @@ const menuItems = [
 	{ path: "/work", label: "Work" },
 	{ path: "/about", label: "About" },
 	{ path: "/contact", label: "Contact" },
+	{ path: "/lab", label: "Lab" },
 ];
 
 const Menu = () => {
@@ -36,13 +37,13 @@ const Menu = () => {
 			timeline.current = gsap
 				.timeline({ paused: true })
 				.to(".overlay", {
-					duration: 1.5,
+					duration: 1,
 					clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
 					ease: "power4.inOut",
 				})
 				.to(".menu-item--holder", {
 					y: 0,
-					duration: 1,
+					duration: 0.75,
 					stagger: 0.1,
 					ease: "power4.out",
 					delay: -0.75,
@@ -133,7 +134,7 @@ const Menu = () => {
 					</div>
 				</div>
 
-				<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-4 col-start-2 col-end-2 lg:col-start-3 lg:col-end-3">
+				<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-4 col-start-4 col-end-4">
 					<div className="uppercase font-mono" onClick={toggleMenu}>
 						<p>Close</p>
 					</div>
