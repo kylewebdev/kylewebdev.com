@@ -12,7 +12,7 @@ const menuItems = [
 	{ path: "/about", label: "About" },
 	{ path: "/projects", label: "Projects" },
 	{ path: "/contact", label: "Contact" },
-	{ path: "/lab", label: "Lab" },
+	// { path: "/lab", label: "Lab" },
 ];
 
 const Menu = () => {

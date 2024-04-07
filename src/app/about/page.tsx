@@ -22,7 +22,7 @@ const AboutPage = () => {
 				</p>
 				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 					Feel free to{" "}
-					<TransitionLink href="/contact" label="contact me" /> if you
+					<TransitionLink href="/contact" label="reach out" /> if you
 					have any questions.
 				</p>
 			</div>

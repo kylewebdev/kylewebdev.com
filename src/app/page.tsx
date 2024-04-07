@@ -11,16 +11,23 @@ export default function Home() {
 					</span>
 					, one site at a time.
 				</h1>
-				<p className="font-mono max-w-[54ch] leading-7 text-pretty text-slate-300">
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 					I believe in the power of the web to connect, inform, and
-					inspire. I build websites that are fast, accessible, and
-					beautiful.{" "}
+					inspire. Every project I work on is an opportunity to make
+					that vision a reality. If you have a project in mind,{" "}
+					<TransitionLink
+						className="link"
+						href="/contact"
+						label="let me know"
+					/>
+					.
+					{/* {" "}
 					<TransitionLink
 						className="link"
 						href="/projects"
 						label="Check out my work"
 					/>
-					.
+					. */}
 				</p>
 			</div>
 		</div>
