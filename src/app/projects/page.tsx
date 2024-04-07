@@ -18,7 +18,7 @@ const WorkPage = () => {
 				</p>
 				<hr className="border-slate-400/25 mb-12" />
 
-				{false ? (
+				{true ? (
 					<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
 						Unfortunately, I can&apos;t share any of my work at the
 						moment. But I&apos;m always open to new opportunities.
