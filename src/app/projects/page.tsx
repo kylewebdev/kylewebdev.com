@@ -11,23 +11,31 @@ const WorkPage = () => {
 				<h1 className="font-normal tracking-tighter text-6xl lg:text-8xl text-balance">
 					Projects
 				</h1>
-				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
-					Here are a few of the things I&apos;ve worked on. If you
-					have a project in mind,{" "}
-					<TransitionLink href="/contact" label="let me know" />!
-				</p>
-				<hr className="border-slate-400/25 mb-12" />
 
 				{true ? (
-					<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
-						Unfortunately, I can&apos;t share any of my work at the
-						moment. But I&apos;m always open to new opportunities.
-						If you have any questions or would like to see my work,
-						feel free to{" "}
-						<TransitionLink href="/contact" label="reach out" />.
-					</p>
+					<>
+						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+							Unfortunately, I can&apos;t share any of my work at
+							the moment. But I&apos;m always open to new
+							opportunities. If you have any questions or would
+							like to see my work, feel free to{" "}
+							<TransitionLink href="/contact" label="reach out" />
+							.
+						</p>
+					</>
 				) : (
 					<>
+						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+							Here are a few of the things I&apos;ve worked on. If
+							you have a project in mind,{" "}
+							<TransitionLink
+								href="/contact"
+								label="let me know"
+							/>
+							!
+						</p>
+						<hr className="border-slate-400/25 mb-12" />
+
 						<a
 							className="project"
 							href="https://jointmedias.com"

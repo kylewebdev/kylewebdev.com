@@ -17,11 +17,13 @@ const menuItems = [
 
 const Menu = () => {
 	const containerRef = useRef<HTMLDivElement>(null);
-	const [isMenuOpen, setIsMenuOpen] = useState<Boolean>(false);
+	const overlay = useRef<HTMLDivElement>(null);
+	const header = useRef<HTMLDivElement>(null);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const tl = useRef<gsap.core.Timeline>();
 
 	const toggleMenu = () => {
-		setIsMenuOpen(!isMenuOpen);
+		setIsMenuOpen((prev) => !prev);
 	};
 
 	const closeMenu = () => {
@@ -33,9 +35,13 @@ const Menu = () => {
 			gsap.set(".menu-item--holder", { y: "100%" });
 			gsap.set(".connect-link", { opacity: 0 });
 
-			tl.current = gsap.timeline({ paused: true });
+			tl.current = gsap.timeline({
+				onComplete: toggleAria,
+				paused: true,
+			});
 
 			tl.current.to(".overlay", {
+				display: "block",
 				duration: 1,
 				clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0 100%)",
 				ease: "power4.inOut",
@@ -58,36 +64,60 @@ const Menu = () => {
 		{ scope: containerRef }
 	);
 
+	// toggle aria-hidden attribute on overlay useing useMemo
+	const toggleAria = () => {
+		if (overlay.current) {
+			overlay.current.setAttribute(
+				"aria-hidden",
+				isMenuOpen ? "false" : "true"
+			);
+		}
+
+		if (header.current)
+			header.current.setAttribute(
+				"aria-hidden",
+				isMenuOpen ? "true" : "false"
+			);
+	};
+
 	useEffect(() => {
 		if (!tl.current) return;
-
 		if (isMenuOpen) {
 			tl.current.play();
 		} else {
 			tl.current.reverse();
 		}
+
+		toggleAria();
 	}, [isMenuOpen]);
 
 	return (
-		<div className="menu-container" ref={containerRef}>
-			<div className="fixed top-0 left-0 w-full p-8 flex justify-between items-center z-10">
+		<header ref={containerRef}>
+			<div
+				className="site-header fixed top-0 left-0 w-full p-8 flex justify-between items-center z-10"
+				ref={header}
+			>
 				<div className="uppercase font-mono">
 					<Link href="/">KyleWebDev</Link>
 				</div>
-				<div
+				<button
 					className="cursor-pointer uppercase font-mono"
 					onClick={toggleMenu}
 				>
-					<p>Menu</p>
-				</div>
+					Menu
+				</button>
 			</div>
 
 			{/* Overlay */}
-			<div className="overlay overflow-y-auto fixed top-0 left-0 w-full h-dvh p-8 bg-slate-200 text-black z-10">
+			<div
+				aria-hidden="true"
+				className="hidden overlay overflow-y-auto fixed top-0 left-0 w-full h-dvh p-8 bg-slate-200 text-black z-10"
+				ref={overlay}
+			>
 				<div className="grid grid-cols-[1fr_1fr]md:grid-cols-[1fr_4fr_1fr] grid-rows-[88px_2fr_1fr] gap-4 h-full">
 					<div className="flex flex-col justify-between h-full row-start-1 row-end-5 col-start-1 col-end-1">
 						<div className="uppercase font-mono">
-							<Link href="/" onClick={closeMenu}>
+							<Link href="/" onClick={closeMenu} tabIndex={1}>
 								KyleWebDev
 							</Link>
 						</div>
@@ -97,6 +127,7 @@ const Menu = () => {
 									className="connect-link block"
 									href="https://twitter.com/kylewebdev_"
 									target="_blank"
+									tabIndex={menuItems.length + 3}
 								>
 									X &#8599;
 								</a>
@@ -107,6 +138,7 @@ const Menu = () => {
 									className="connect-link block"
 									href="https://github.com/kylewebdev"
 									target="_blank"
+									tabIndex={menuItems.length + 4}
 								>
 									GitHub &#8599;
 								</a>
@@ -117,6 +149,7 @@ const Menu = () => {
 									className="connect-link block"
 									href="https://www.linkedin.com/in/kylewebdev"
 									target="_blank"
+									tabIndex={menuItems.length + 5}
 								>
 									LinkedIn &#8599;
 								</a>
@@ -127,6 +160,7 @@ const Menu = () => {
 									className="connect-link block"
 									href="mailto:kylewebdev@gmail.com"
 									target="_blank"
+									tabIndex={menuItems.length + 6}
 								>
 									Email &#8599;
 								</a>
@@ -143,6 +177,7 @@ const Menu = () => {
 											className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-extralight uppercase -tracking-wider"
 											href={item.path}
 											onClick={toggleMenu}
+											tabIndex={index + 3}
 										>
 											{item.label}
 										</Link>
@@ -153,16 +188,17 @@ const Menu = () => {
 					</div>
 
 					<div className="flex flex-col justify-between items-end h-full row-start-1 row-end-5 col-start-2 col-end-3">
-						<div
+						<button
 							className="cursor-pointer uppercase font-mono"
 							onClick={toggleMenu}
+							tabIndex={2}
 						>
-							<p>Close</p>
-						</div>
+							Close
+						</button>
 					</div>
 				</div>
 			</div>
-		</div>
+		</header>
 	);
 };
 
