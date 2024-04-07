@@ -14,7 +14,7 @@ const WorkPage = () => {
 
 				{true ? (
 					<>
-						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 							Unfortunately, I can&apos;t share any of my work at
 							the moment. But I&apos;m always open to new
 							opportunities. If you have any questions or would
@@ -25,7 +25,7 @@ const WorkPage = () => {
 					</>
 				) : (
 					<>
-						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+						<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 							Here are a few of the things I&apos;ve worked on. If
 							you have a project in mind,{" "}
 							<TransitionLink
@@ -34,7 +34,7 @@ const WorkPage = () => {
 							/>
 							!
 						</p>
-						<hr className="border-slate-400/25 mb-12" />
+						<hr className="border-slate-300/25 mb-12" />
 
 						<a
 							className="project"
@@ -56,7 +56,7 @@ const WorkPage = () => {
 							</div>
 
 							<p
-								className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400"
+								className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300"
 								aria-label="tech stack:"
 							>
 								Headless WordPress,{" "}

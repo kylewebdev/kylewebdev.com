@@ -9,18 +9,18 @@ const AboutPage = () => {
 					Hello! I&apos;m <strong>Kyle</strong>
 				</h1>
 
-				<p className="max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<p className="max-w-[66ch] leading-7 text-pretty text-slate-300">
 					<em>aka</em>{" "}
 					<span className="font-mono uppercase">KyleWebDev</span>.
 				</p>
 
-				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 					Since I was a kid, I&apos;ve always had a knack for figuring
 					out how things work, and it turns out, I love turning that
 					passion into helping businesses build their{" "}
 					<TransitionLink href="/projects" label="dream websites" />.
 				</p>
-				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<p className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 					Feel free to{" "}
 					<TransitionLink href="/contact" label="contact me" /> if you
 					have any questions.

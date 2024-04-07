@@ -31,7 +31,7 @@ export default function TransitionLink({
 			return (
 				<button
 					className={cn(
-						"inline underline font-mono max-w-[54ch] leading-7 text-pretty text-slate-400",
+						"inline underline font-mono max-w-[54ch] leading-7 text-pretty text-slate-300",
 						className
 					)}
 					onClick={handleClick}

@@ -8,7 +8,7 @@ const ContactPage = () => {
 					Contact
 				</h1>
 
-				<div className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-400">
+				<div className="font-mono max-w-[66ch] leading-7 text-pretty text-slate-300">
 					<div className="flex flex-col gap-3 sm:flex-row sm:gap-6">
 						<a
 							className="link block transition-colors hover:text-white"

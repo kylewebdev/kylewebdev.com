@@ -11,7 +11,7 @@ export default function Home() {
 					</span>
 					, one site at a time.
 				</h1>
-				<p className="font-mono max-w-[54ch] leading-7 text-pretty text-slate-400">
+				<p className="font-mono max-w-[54ch] leading-7 text-pretty text-slate-300">
 					I believe in the power of the web to connect, inform, and
 					inspire. I build websites that are fast, accessible, and
 					beautiful.{" "}
